@@ -1,0 +1,99 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ui Elements</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/9247077002.js" crossorigin="anonymous"></script>
+    
+</head>
+
+<body>
+    <div id="loader" class="hidden"></div>
+    <div id="topBarMargin"></div>
+    <section id="master" >
+        <!--  nav section -->
+        <section id="nav">
+            <div class="nav wrapper">
+                <div class="right-nav">
+                    <img class="logo" src="LogoRobotForce.svg" alt="logo RobotForce">
+                </div>
+                <div class="name">
+                    <h4>Ui Elements</h4>
+                </div>
+                <div class="nav-buttons">
+                    <button class="minimize-nav-btn"><i class="far fa-window-minimize"></i></button>
+                    <button class="zoom-nav-btn"><i class="fal fa-window-restore"></i></button>
+                    <button onclick="csharpSync.closeExplorer()" class="close-nav-btn "><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!--  option section -->
+        <section id="options" ">
+            <div class=" options wrapper">
+                <div class="option-btns">
+                    <button class="questions"><i class="far fa-question-circle"></i></button>
+                    <button class="settings" onclick="csharpSync.openDevToolsExplorer()"><i class="fas fa-cog"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!--  element tree section -->
+        <section id="elements">
+            <div class="element-container wrapper">
+                <div class="elements">
+                    <div class="element-tree-header">
+                        <h3>Element Tree</h3>
+                    </div>
+
+                    <div class='elements-list'>
+                        <div class="json"></div>
+                        <div class="top-element-box">
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+
+        <!--  main section -->
+        <section class=" main-area">
+            <div class="properties wrapper">
+                <div class="buttons-validate">
+                    <button class="btn toggle-off" id="validateButton">Validation</button>
+                    <button class="highlight btn toggle-off" id="highlightButton">Highlight</button>
+                </div>
+                <h1>Properties</h1>
+
+                <div id="elementProperties">
+                    
+                </div>
+
+
+
+                <div class="path">
+                    <h1>Path</h1>
+                    <textarea id="path" name="path" rows="5" cols="33">    
+                </textarea>
+                </div>
+
+
+
+                <div class="buttons">
+                    <button class="copy btn">Copy Path</button>
+                    <button class="indicate btn" id="indicateButton">Indicate</button>
+                </div>
+            </div>
+
+        </section>
+
+    </section>
+    <script src="./main.js"></script>
+</body>
+
+</html>

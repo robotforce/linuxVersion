@@ -1,0 +1,44 @@
+<button id="myBtn" class="btn btn-info">Logs</button>
+
+
+<div id="myModal" class="modal">
+
+ 
+  <div class="modal-content">
+    <span class="closing">&times;</span>
+    <p>modal_text</p>
+  </div>
+
+</div>
+
+<script>
+
+var modal = document.getElementById('myModal');
+
+
+var btn = document.getElementById("myBtn");
+
+
+var span = document.getElementsByClassName("closing")[0];
+
+
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+
+ 
+ 

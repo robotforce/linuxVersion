@@ -1,0 +1,2355 @@
+[1001/225159.491:INFO:CONSOLE(77)] "CSS cannot be loaded from `file:` URLs unless they end in a `.css` file extension.", source: file:///C:/Robot-ForceNET6v2/CefForm/bin/Release/netcoreapp3.1/publish/universal/Frontend/index.html (77)
+[1001/225201.915:INFO:CONSOLE(530)] "<!-- Page Heading -->
+
+<div class="d-sm-flex align-items-center justify-content-between mb-2 row col-lg-12" style="border-bottom:solid 1px;">
+    <h1 class="h3 mb-0 text-gray-800 col-md-8 col-md-10">My robots</h1>
+
+    <a href="#" class="d-none d-sm-inline-block btn-sm btn-primary shadow-sm btn btn-icon-split " onclick="createFolder('Enter name of new directory');">
+        <span class="icon text-white-50">
+            <i class="fas fa-plus-circle"></i>
+        </span>
+        <span class="text">Add directory</span>
+    </a>
+
+    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sync fa-sm" onclick="loadPage('myprocesses');"></i> </a>
+</div>
+
+<!-- Content Row -->
+<div class="row my-2 col-lg-12">
+    <div class="col-xs-1 ">
+        <a href="#" class="btn btn-success btn-icon-split" onclick="runAllProcess();">
+            <span class="icon text-white-50">
+                <i class="fas fa-play-circle"></i>
+            </span>
+            <span class="text">Run selected processes</span>
+        </a>
+    </div>
+    <div class="col-md-2">
+        <a href="#" class="btn btn-secondary " id="selAllButton" onclick="switchToggle('Process-control');selectAllProcessGlobal('Process-control'); folderTriggers('Process-control');">
+
+            <span class="text-white">Select All &nbsp; </span>
+
+            <div class="custom-control custom-switch col-xs-1 float-right">
+                <input type="checkbox" class="custom-control-input" id="Process-control" onclick="selectAllProcessGlobal('Process-control'); folderTriggers('Process-control');">
+                <label class="custom-control-label" for="Process-control"></label>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="row my-2">
+</div>
+
+<div class="row col-lg-12" id="allFolder">
+
+     <!-- Collapsable Card Example -->
+
+<div class="card shadow mb-4 col-lg-12" style="border: solid 1px #81a2de">
+
+    <!-- Card Header - Accordion -->
+
+    <div class="d-block card-header py-3 collapsed" style="background-color:#ffffff; padding:0">
+
+        <div class="row">
+            <h6 class="m-0 font-weight-bold text-primary col-md-10 pointer" href="#folder_nowy" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="folder_nowy" style="padding:20px">nowy</h6>
+
+            <div class="custom-control custom-switch col-md-1 float-right">
+                <input type="checkbox" class="custom-control-input folder-control" id="nowy-control" onchange="selectAllProcess('nowy-control');">
+                <label class="custom-control-label" for="nowy-control"></label>
+            </div>
+            <div class="col-md-1 float-right">
+                <a href="#" role="button" id="dropdownnowy" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownnowy">
+                    <div class="dropdown-header">Actions:</div>
+                    <a class="dropdown-item" href="#" onclick="createProcesscaseInFolder_window('nowy');">Add new process</a>
+                    <a class="dropdown-item" href="#" onclick="deleteFolder('nowy');">Delete directory</a>
+                    <a class="dropdown-item" href="#" onclick="renameFolder('nowy');">Rename directory</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" onclick="openFolder('nowy');">Go to file explorer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card Content - Collapse -->
+    <div class="collapse" id="folder_nowy">
+        <div class="card-body">
+
+            <div class="row my-2">
+            </div>
+            <div class="row col-lg-12 dropzone myprocess" id="body_nowy" name="nowy" controlfolder="nowy-control" style="min-height:200px;">
+                 <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="cleanTest" id="card_cleanTestnowy">
+    <script>
+	$( "#target_cleanTestnowy" ).click(function() {
+  runProcess(($('#card_cleanTestnowy').find('input').attr('name')));
+});
+$( "#deletebtn_cleanTestnowy" ).click(function() {
+	deleteFile(($('#card_cleanTestnowy').find('input').attr('name')),($('#card_cleanTestnowy').parent().attr('name')));
+
+});
+$( "#editbtn_cleanTestnowy" ).click(async function() {
+	 await editProcessCase(($('#card_cleanTestnowy').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_cleanTestnowy").click(async function () {
+            await uploadProcessCase(($('#card_cleanTestnowy').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdowncleanTestnowy" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdowncleanTestnowy">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_cleanTestnowy">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_cleanTestnowy">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_cleanTestnowy">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">cleanTest</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_cleanTestnowy">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="nowy-control" name="nowy\cleanTest.rfrobot" id="id_cleanTestnowy">
+            <label class="custom-control-label" for="id_cleanTestnowy">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="datetime" id="card_datetimenowy">
+    <script>
+	$( "#target_datetimenowy" ).click(function() {
+  runProcess(($('#card_datetimenowy').find('input').attr('name')));
+});
+$( "#deletebtn_datetimenowy" ).click(function() {
+	deleteFile(($('#card_datetimenowy').find('input').attr('name')),($('#card_datetimenowy').parent().attr('name')));
+
+});
+$( "#editbtn_datetimenowy" ).click(async function() {
+	 await editProcessCase(($('#card_datetimenowy').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_datetimenowy").click(async function () {
+            await uploadProcessCase(($('#card_datetimenowy').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdowndatetimenowy" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdowndatetimenowy">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_datetimenowy">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_datetimenowy">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_datetimenowy">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">datetime</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_datetimenowy">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="nowy-control" name="nowy\datetime.rfrobot" id="id_datetimenowy">
+            <label class="custom-control-label" for="id_datetimenowy">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="linux" id="card_linuxnowy">
+    <script>
+	$( "#target_linuxnowy" ).click(function() {
+  runProcess(($('#card_linuxnowy').find('input').attr('name')));
+});
+$( "#deletebtn_linuxnowy" ).click(function() {
+	deleteFile(($('#card_linuxnowy').find('input').attr('name')),($('#card_linuxnowy').parent().attr('name')));
+
+});
+$( "#editbtn_linuxnowy" ).click(async function() {
+	 await editProcessCase(($('#card_linuxnowy').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_linuxnowy").click(async function () {
+            await uploadProcessCase(($('#card_linuxnowy').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownlinuxnowy" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownlinuxnowy">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_linuxnowy">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_linuxnowy">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_linuxnowy">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">linux</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_linuxnowy">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="nowy-control" name="nowy\linux.rfrobot" id="id_linuxnowy">
+            <label class="custom-control-label" for="id_linuxnowy">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="linuxRPA" id="card_linuxRPAnowy">
+    <script>
+	$( "#target_linuxRPAnowy" ).click(function() {
+  runProcess(($('#card_linuxRPAnowy').find('input').attr('name')));
+});
+$( "#deletebtn_linuxRPAnowy" ).click(function() {
+	deleteFile(($('#card_linuxRPAnowy').find('input').attr('name')),($('#card_linuxRPAnowy').parent().attr('name')));
+
+});
+$( "#editbtn_linuxRPAnowy" ).click(async function() {
+	 await editProcessCase(($('#card_linuxRPAnowy').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_linuxRPAnowy").click(async function () {
+            await uploadProcessCase(($('#card_linuxRPAnowy').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownlinuxRPAnowy" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownlinuxRPAnowy">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_linuxRPAnowy">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_linuxRPAnowy">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_linuxRPAnowy">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">linuxRPA</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_linuxRPAnowy">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="nowy-control" name="nowy\linuxRPA.rfrobot" id="id_linuxRPAnowy">
+            <label class="custom-control-label" for="id_linuxRPAnowy">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="rpaWebdriver" id="card_rpaWebdrivernowy">
+    <script>
+	$( "#target_rpaWebdrivernowy" ).click(function() {
+  runProcess(($('#card_rpaWebdrivernowy').find('input').attr('name')));
+});
+$( "#deletebtn_rpaWebdrivernowy" ).click(function() {
+	deleteFile(($('#card_rpaWebdrivernowy').find('input').attr('name')),($('#card_rpaWebdrivernowy').parent().attr('name')));
+
+});
+$( "#editbtn_rpaWebdrivernowy" ).click(async function() {
+	 await editProcessCase(($('#card_rpaWebdrivernowy').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_rpaWebdrivernowy").click(async function () {
+            await uploadProcessCase(($('#card_rpaWebdrivernowy').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownrpaWebdrivernowy" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownrpaWebdrivernowy">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_rpaWebdrivernowy">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_rpaWebdrivernowy">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_rpaWebdrivernowy">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">rpaWebdriver</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_rpaWebdrivernowy">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="nowy-control" name="nowy\rpaWebdriver.rfrobot" id="id_rpaWebdrivernowy">
+            <label class="custom-control-label" for="id_rpaWebdrivernowy">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="test" id="card_testnowy">
+    <script>
+	$( "#target_testnowy" ).click(function() {
+  runProcess(($('#card_testnowy').find('input').attr('name')));
+});
+$( "#deletebtn_testnowy" ).click(function() {
+	deleteFile(($('#card_testnowy').find('input').attr('name')),($('#card_testnowy').parent().attr('name')));
+
+});
+$( "#editbtn_testnowy" ).click(async function() {
+	 await editProcessCase(($('#card_testnowy').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_testnowy").click(async function () {
+            await uploadProcessCase(($('#card_testnowy').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdowntestnowy" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdowntestnowy">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_testnowy">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_testnowy">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_testnowy">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">test</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_testnowy">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="nowy-control" name="nowy\test.rfrobot" id="id_testnowy">
+            <label class="custom-control-label" for="id_testnowy">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="wirtualka" id="card_wirtualkanowy">
+    <script>
+	$( "#target_wirtualkanowy" ).click(function() {
+  runProcess(($('#card_wirtualkanowy').find('input').attr('name')));
+});
+$( "#deletebtn_wirtualkanowy" ).click(function() {
+	deleteFile(($('#card_wirtualkanowy').find('input').attr('name')),($('#card_wirtualkanowy').parent().attr('name')));
+
+});
+$( "#editbtn_wirtualkanowy" ).click(async function() {
+	 await editProcessCase(($('#card_wirtualkanowy').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_wirtualkanowy").click(async function () {
+            await uploadProcessCase(($('#card_wirtualkanowy').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownwirtualkanowy" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownwirtualkanowy">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_wirtualkanowy">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_wirtualkanowy">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_wirtualkanowy">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">wirtualka</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_wirtualkanowy">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="nowy-control" name="nowy\wirtualka.rfrobot" id="id_wirtualkanowy">
+            <label class="custom-control-label" for="id_wirtualkanowy">Toggle selection</label>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</div> <!-- Collapsable Card Example -->
+
+<div class="card shadow mb-4 col-lg-12" style="border: solid 1px #81a2de">
+
+    <!-- Card Header - Accordion -->
+
+    <div class="d-block card-header py-3 collapsed" style="background-color:#ffffff; padding:0">
+
+        <div class="row">
+            <h6 class="m-0 font-weight-bold text-primary col-md-10 pointer" href="#folder_new" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="folder_new" style="padding:20px">new</h6>
+
+            <div class="custom-control custom-switch col-md-1 float-right">
+                <input type="checkbox" class="custom-control-input folder-control" id="new-control" onchange="selectAllProcess('new-control');">
+                <label class="custom-control-label" for="new-control"></label>
+            </div>
+            <div class="col-md-1 float-right">
+                <a href="#" role="button" id="dropdownnew" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownnew">
+                    <div class="dropdown-header">Actions:</div>
+                    <a class="dropdown-item" href="#" onclick="createProcesscaseInFolder_window('new');">Add new process</a>
+                    <a class="dropdown-item" href="#" onclick="deleteFolder('new');">Delete directory</a>
+                    <a class="dropdown-item" href="#" onclick="renameFolder('new');">Rename directory</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" onclick="openFolder('new');">Go to file explorer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card Content - Collapse -->
+    <div class="collapse" id="folder_new">
+        <div class="card-body">
+
+            <div class="row my-2">
+            </div>
+            <div class="row col-lg-12 dropzone myprocess" id="body_new" name="new" controlfolder="new-control" style="min-height:200px;">
+                 <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="cmd" id="card_cmdnew">
+    <script>
+	$( "#target_cmdnew" ).click(function() {
+  runProcess(($('#card_cmdnew').find('input').attr('name')));
+});
+$( "#deletebtn_cmdnew" ).click(function() {
+	deleteFile(($('#card_cmdnew').find('input').attr('name')),($('#card_cmdnew').parent().attr('name')));
+
+});
+$( "#editbtn_cmdnew" ).click(async function() {
+	 await editProcessCase(($('#card_cmdnew').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_cmdnew").click(async function () {
+            await uploadProcessCase(($('#card_cmdnew').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdowncmdnew" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdowncmdnew">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_cmdnew">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_cmdnew">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_cmdnew">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">cmd</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_cmdnew">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="new-control" name="new\cmd.rfrobot" id="id_cmdnew">
+            <label class="custom-control-label" for="id_cmdnew">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="FailedRobot" id="card_FailedRobotnew">
+    <script>
+	$( "#target_FailedRobotnew" ).click(function() {
+  runProcess(($('#card_FailedRobotnew').find('input').attr('name')));
+});
+$( "#deletebtn_FailedRobotnew" ).click(function() {
+	deleteFile(($('#card_FailedRobotnew').find('input').attr('name')),($('#card_FailedRobotnew').parent().attr('name')));
+
+});
+$( "#editbtn_FailedRobotnew" ).click(async function() {
+	 await editProcessCase(($('#card_FailedRobotnew').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_FailedRobotnew").click(async function () {
+            await uploadProcessCase(($('#card_FailedRobotnew').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownFailedRobotnew" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownFailedRobotnew">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_FailedRobotnew">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_FailedRobotnew">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_FailedRobotnew">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">FailedRobot</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_FailedRobotnew">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="new-control" name="new\FailedRobot.rfrobot" id="id_FailedRobotnew">
+            <label class="custom-control-label" for="id_FailedRobotnew">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="FirstRobot" id="card_FirstRobotnew">
+    <script>
+	$( "#target_FirstRobotnew" ).click(function() {
+  runProcess(($('#card_FirstRobotnew').find('input').attr('name')));
+});
+$( "#deletebtn_FirstRobotnew" ).click(function() {
+	deleteFile(($('#card_FirstRobotnew').find('input').attr('name')),($('#card_FirstRobotnew').parent().attr('name')));
+
+});
+$( "#editbtn_FirstRobotnew" ).click(async function() {
+	 await editProcessCase(($('#card_FirstRobotnew').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_FirstRobotnew").click(async function () {
+            await uploadProcessCase(($('#card_FirstRobotnew').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownFirstRobotnew" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownFirstRobotnew">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_FirstRobotnew">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_FirstRobotnew">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_FirstRobotnew">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">FirstRobot</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_FirstRobotnew">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="new-control" name="new\FirstRobot.rfrobot" id="id_FirstRobotnew">
+            <label class="custom-control-label" for="id_FirstRobotnew">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="login" id="card_loginnew">
+    <script>
+	$( "#target_loginnew" ).click(function() {
+  runProcess(($('#card_loginnew').find('input').attr('name')));
+});
+$( "#deletebtn_loginnew" ).click(function() {
+	deleteFile(($('#card_loginnew').find('input').attr('name')),($('#card_loginnew').parent().attr('name')));
+
+});
+$( "#editbtn_loginnew" ).click(async function() {
+	 await editProcessCase(($('#card_loginnew').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_loginnew").click(async function () {
+            await uploadProcessCase(($('#card_loginnew').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownloginnew" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownloginnew">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_loginnew">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_loginnew">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_loginnew">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">login</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_loginnew">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="new-control" name="new\login.rfrobot" id="id_loginnew">
+            <label class="custom-control-label" for="id_loginnew">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="LongRun" id="card_LongRunnew">
+    <script>
+	$( "#target_LongRunnew" ).click(function() {
+  runProcess(($('#card_LongRunnew').find('input').attr('name')));
+});
+$( "#deletebtn_LongRunnew" ).click(function() {
+	deleteFile(($('#card_LongRunnew').find('input').attr('name')),($('#card_LongRunnew').parent().attr('name')));
+
+});
+$( "#editbtn_LongRunnew" ).click(async function() {
+	 await editProcessCase(($('#card_LongRunnew').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_LongRunnew").click(async function () {
+            await uploadProcessCase(($('#card_LongRunnew').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownLongRunnew" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownLongRunnew">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_LongRunnew">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_LongRunnew">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_LongRunnew">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">LongRun</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_LongRunnew">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="new-control" name="new\LongRun.rfrobot" id="id_LongRunnew">
+            <label class="custom-control-label" for="id_LongRunnew">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="SecondRobot" id="card_SecondRobotnew">
+    <script>
+	$( "#target_SecondRobotnew" ).click(function() {
+  runProcess(($('#card_SecondRobotnew').find('input').attr('name')));
+});
+$( "#deletebtn_SecondRobotnew" ).click(function() {
+	deleteFile(($('#card_SecondRobotnew').find('input').attr('name')),($('#card_SecondRobotnew').parent().attr('name')));
+
+});
+$( "#editbtn_SecondRobotnew" ).click(async function() {
+	 await editProcessCase(($('#card_SecondRobotnew').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_SecondRobotnew").click(async function () {
+            await uploadProcessCase(($('#card_SecondRobotnew').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownSecondRobotnew" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownSecondRobotnew">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_SecondRobotnew">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_SecondRobotnew">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_SecondRobotnew">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">SecondRobot</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_SecondRobotnew">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="new-control" name="new\SecondRobot.rfrobot" id="id_SecondRobotnew">
+            <label class="custom-control-label" for="id_SecondRobotnew">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="Start" id="card_Startnew">
+    <script>
+	$( "#target_Startnew" ).click(function() {
+  runProcess(($('#card_Startnew').find('input').attr('name')));
+});
+$( "#deletebtn_Startnew" ).click(function() {
+	deleteFile(($('#card_Startnew').find('input').attr('name')),($('#card_Startnew').parent().attr('name')));
+
+});
+$( "#editbtn_Startnew" ).click(async function() {
+	 await editProcessCase(($('#card_Startnew').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_Startnew").click(async function () {
+            await uploadProcessCase(($('#card_Startnew').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownStartnew" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownStartnew">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_Startnew">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_Startnew">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_Startnew">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Start</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_Startnew">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="new-control" name="new\Start.rfrobot" id="id_Startnew">
+            <label class="custom-control-label" for="id_Startnew">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="ThirdRobot" id="card_ThirdRobotnew">
+    <script>
+	$( "#target_ThirdRobotnew" ).click(function() {
+  runProcess(($('#card_ThirdRobotnew').find('input').attr('name')));
+});
+$( "#deletebtn_ThirdRobotnew" ).click(function() {
+	deleteFile(($('#card_ThirdRobotnew').find('input').attr('name')),($('#card_ThirdRobotnew').parent().attr('name')));
+
+});
+$( "#editbtn_ThirdRobotnew" ).click(async function() {
+	 await editProcessCase(($('#card_ThirdRobotnew').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_ThirdRobotnew").click(async function () {
+            await uploadProcessCase(($('#card_ThirdRobotnew').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownThirdRobotnew" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownThirdRobotnew">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_ThirdRobotnew">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_ThirdRobotnew">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_ThirdRobotnew">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">ThirdRobot</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_ThirdRobotnew">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="new-control" name="new\ThirdRobot.rfrobot" id="id_ThirdRobotnew">
+            <label class="custom-control-label" for="id_ThirdRobotnew">Toggle selection</label>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</div> <!-- Collapsable Card Example -->
+
+<div class="card shadow mb-4 col-lg-12" style="border: solid 1px #81a2de">
+
+    <!-- Card Header - Accordion -->
+
+    <div class="d-block card-header py-3 collapsed" style="background-color:#ffffff; padding:0">
+
+        <div class="row">
+            <h6 class="m-0 font-weight-bold text-primary col-md-10 pointer" href="#folder_Demo" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="folder_Demo" style="padding:20px">Demo</h6>
+
+            <div class="custom-control custom-switch col-md-1 float-right">
+                <input type="checkbox" class="custom-control-input folder-control" id="Demo-control" onchange="selectAllProcess('Demo-control');">
+                <label class="custom-control-label" for="Demo-control"></label>
+            </div>
+            <div class="col-md-1 float-right">
+                <a href="#" role="button" id="dropdownDemo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownDemo">
+                    <div class="dropdown-header">Actions:</div>
+                    <a class="dropdown-item" href="#" onclick="createProcesscaseInFolder_window('Demo');">Add new process</a>
+                    <a class="dropdown-item" href="#" onclick="deleteFolder('Demo');">Delete directory</a>
+                    <a class="dropdown-item" href="#" onclick="renameFolder('Demo');">Rename directory</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" onclick="openFolder('Demo');">Go to file explorer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card Content - Collapse -->
+    <div class="collapse" id="folder_Demo">
+        <div class="card-body">
+
+            <div class="row my-2">
+            </div>
+            <div class="row col-lg-12 dropzone myprocess" id="body_Demo" name="Demo" controlfolder="Demo-control" style="min-height:200px;">
+                 <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="Challenge" id="card_ChallengeDemo">
+    <script>
+	$( "#target_ChallengeDemo" ).click(function() {
+  runProcess(($('#card_ChallengeDemo').find('input').attr('name')));
+});
+$( "#deletebtn_ChallengeDemo" ).click(function() {
+	deleteFile(($('#card_ChallengeDemo').find('input').attr('name')),($('#card_ChallengeDemo').parent().attr('name')));
+
+});
+$( "#editbtn_ChallengeDemo" ).click(async function() {
+	 await editProcessCase(($('#card_ChallengeDemo').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_ChallengeDemo").click(async function () {
+            await uploadProcessCase(($('#card_ChallengeDemo').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownChallengeDemo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownChallengeDemo">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_ChallengeDemo">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_ChallengeDemo">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_ChallengeDemo">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Challenge</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_ChallengeDemo">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Demo-control" name="Demo\Challenge.rfrobot" id="id_ChallengeDemo">
+            <label class="custom-control-label" for="id_ChallengeDemo">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="Demo" id="card_DemoDemo">
+    <script>
+	$( "#target_DemoDemo" ).click(function() {
+  runProcess(($('#card_DemoDemo').find('input').attr('name')));
+});
+$( "#deletebtn_DemoDemo" ).click(function() {
+	deleteFile(($('#card_DemoDemo').find('input').attr('name')),($('#card_DemoDemo').parent().attr('name')));
+
+});
+$( "#editbtn_DemoDemo" ).click(async function() {
+	 await editProcessCase(($('#card_DemoDemo').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_DemoDemo").click(async function () {
+            await uploadProcessCase(($('#card_DemoDemo').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownDemoDemo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownDemoDemo">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_DemoDemo">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_DemoDemo">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_DemoDemo">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Demo</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_DemoDemo">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Demo-control" name="Demo\Demo.rfrobot" id="id_DemoDemo">
+            <label class="custom-control-label" for="id_DemoDemo">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="Kinga" id="card_KingaDemo">
+    <script>
+	$( "#target_KingaDemo" ).click(function() {
+  runProcess(($('#card_KingaDemo').find('input').attr('name')));
+});
+$( "#deletebtn_KingaDemo" ).click(function() {
+	deleteFile(($('#card_KingaDemo').find('input').attr('name')),($('#card_KingaDemo').parent().attr('name')));
+
+});
+$( "#editbtn_KingaDemo" ).click(async function() {
+	 await editProcessCase(($('#card_KingaDemo').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_KingaDemo").click(async function () {
+            await uploadProcessCase(($('#card_KingaDemo').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownKingaDemo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownKingaDemo">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_KingaDemo">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_KingaDemo">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_KingaDemo">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Kinga</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_KingaDemo">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Demo-control" name="Demo\Kinga.rfrobot" id="id_KingaDemo">
+            <label class="custom-control-label" for="id_KingaDemo">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="Message Box" id="card_MessageBoxDemo">
+    <script>
+	$( "#target_MessageBoxDemo" ).click(function() {
+  runProcess(($('#card_MessageBoxDemo').find('input').attr('name')));
+});
+$( "#deletebtn_MessageBoxDemo" ).click(function() {
+	deleteFile(($('#card_MessageBoxDemo').find('input').attr('name')),($('#card_MessageBoxDemo').parent().attr('name')));
+
+});
+$( "#editbtn_MessageBoxDemo" ).click(async function() {
+	 await editProcessCase(($('#card_MessageBoxDemo').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_MessageBoxDemo").click(async function () {
+            await uploadProcessCase(($('#card_MessageBoxDemo').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownMessageBoxDemo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownMessageBoxDemo">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_MessageBoxDemo">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_MessageBoxDemo">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_MessageBoxDemo">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Message Box</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_MessageBoxDemo">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Demo-control" name="Demo\Message Box.rfrobot" id="id_MessageBoxDemo">
+            <label class="custom-control-label" for="id_MessageBoxDemo">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="migracja" id="card_migracjaDemo">
+    <script>
+	$( "#target_migracjaDemo" ).click(function() {
+  runProcess(($('#card_migracjaDemo').find('input').attr('name')));
+});
+$( "#deletebtn_migracjaDemo" ).click(function() {
+	deleteFile(($('#card_migracjaDemo').find('input').attr('name')),($('#card_migracjaDemo').parent().attr('name')));
+
+});
+$( "#editbtn_migracjaDemo" ).click(async function() {
+	 await editProcessCase(($('#card_migracjaDemo').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_migracjaDemo").click(async function () {
+            await uploadProcessCase(($('#card_migracjaDemo').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownmigracjaDemo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownmigracjaDemo">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_migracjaDemo">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_migracjaDemo">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_migracjaDemo">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">migracja</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_migracjaDemo">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Demo-control" name="Demo\migracja.rfrobot" id="id_migracjaDemo">
+            <label class="custom-control-label" for="id_migracjaDemo">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="Nowy0123" id="card_Nowy0123Demo">
+    <script>
+	$( "#target_Nowy0123Demo" ).click(function() {
+  runProcess(($('#card_Nowy0123Demo').find('input').attr('name')));
+});
+$( "#deletebtn_Nowy0123Demo" ).click(function() {
+	deleteFile(($('#card_Nowy0123Demo').find('input').attr('name')),($('#card_Nowy0123Demo').parent().attr('name')));
+
+});
+$( "#editbtn_Nowy0123Demo" ).click(async function() {
+	 await editProcessCase(($('#card_Nowy0123Demo').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_Nowy0123Demo").click(async function () {
+            await uploadProcessCase(($('#card_Nowy0123Demo').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownNowy0123Demo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownNowy0123Demo">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_Nowy0123Demo">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_Nowy0123Demo">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_Nowy0123Demo">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Nowy0123</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_Nowy0123Demo">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Demo-control" name="Demo\Nowy0123.rfrobot" id="id_Nowy0123Demo">
+            <label class="custom-control-label" for="id_Nowy0123Demo">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="Nowy1" id="card_Nowy1Demo">
+    <script>
+	$( "#target_Nowy1Demo" ).click(function() {
+  runProcess(($('#card_Nowy1Demo').find('input').attr('name')));
+});
+$( "#deletebtn_Nowy1Demo" ).click(function() {
+	deleteFile(($('#card_Nowy1Demo').find('input').attr('name')),($('#card_Nowy1Demo').parent().attr('name')));
+
+});
+$( "#editbtn_Nowy1Demo" ).click(async function() {
+	 await editProcessCase(($('#card_Nowy1Demo').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_Nowy1Demo").click(async function () {
+            await uploadProcessCase(($('#card_Nowy1Demo').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownNowy1Demo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownNowy1Demo">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_Nowy1Demo">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_Nowy1Demo">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_Nowy1Demo">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Nowy1</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_Nowy1Demo">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Demo-control" name="Demo\Nowy1.rfrobot" id="id_Nowy1Demo">
+            <label class="custom-control-label" for="id_Nowy1Demo">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="Prezentacja" id="card_PrezentacjaDemo">
+    <script>
+	$( "#target_PrezentacjaDemo" ).click(function() {
+  runProcess(($('#card_PrezentacjaDemo').find('input').attr('name')));
+});
+$( "#deletebtn_PrezentacjaDemo" ).click(function() {
+	deleteFile(($('#card_PrezentacjaDemo').find('input').attr('name')),($('#card_PrezentacjaDemo').parent().attr('name')));
+
+});
+$( "#editbtn_PrezentacjaDemo" ).click(async function() {
+	 await editProcessCase(($('#card_PrezentacjaDemo').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_PrezentacjaDemo").click(async function () {
+            await uploadProcessCase(($('#card_PrezentacjaDemo').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownPrezentacjaDemo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownPrezentacjaDemo">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_PrezentacjaDemo">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_PrezentacjaDemo">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_PrezentacjaDemo">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Prezentacja</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_PrezentacjaDemo">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Demo-control" name="Demo\Prezentacja.rfrobot" id="id_PrezentacjaDemo">
+            <label class="custom-control-label" for="id_PrezentacjaDemo">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="test2" id="card_test2Demo">
+    <script>
+	$( "#target_test2Demo" ).click(function() {
+  runProcess(($('#card_test2Demo').find('input').attr('name')));
+});
+$( "#deletebtn_test2Demo" ).click(function() {
+	deleteFile(($('#card_test2Demo').find('input').attr('name')),($('#card_test2Demo').parent().attr('name')));
+
+});
+$( "#editbtn_test2Demo" ).click(async function() {
+	 await editProcessCase(($('#card_test2Demo').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_test2Demo").click(async function () {
+            await uploadProcessCase(($('#card_test2Demo').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdowntest2Demo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdowntest2Demo">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_test2Demo">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_test2Demo">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_test2Demo">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">test2</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_test2Demo">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Demo-control" name="Demo\test2.rfrobot" id="id_test2Demo">
+            <label class="custom-control-label" for="id_test2Demo">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="Virtual elements" id="card_VirtualelementsDemo">
+    <script>
+	$( "#target_VirtualelementsDemo" ).click(function() {
+  runProcess(($('#card_VirtualelementsDemo').find('input').attr('name')));
+});
+$( "#deletebtn_VirtualelementsDemo" ).click(function() {
+	deleteFile(($('#card_VirtualelementsDemo').find('input').attr('name')),($('#card_VirtualelementsDemo').parent().attr('name')));
+
+});
+$( "#editbtn_VirtualelementsDemo" ).click(async function() {
+	 await editProcessCase(($('#card_VirtualelementsDemo').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_VirtualelementsDemo").click(async function () {
+            await uploadProcessCase(($('#card_VirtualelementsDemo').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownVirtualelementsDemo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownVirtualelementsDemo">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_VirtualelementsDemo">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_VirtualelementsDemo">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_VirtualelementsDemo">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Virtual elements</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_VirtualelementsDemo">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Demo-control" name="Demo\Virtual elements.rfrobot" id="id_VirtualelementsDemo">
+            <label class="custom-control-label" for="id_VirtualelementsDemo">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="WebDriver 2" id="card_WebDriver2Demo">
+    <script>
+	$( "#target_WebDriver2Demo" ).click(function() {
+  runProcess(($('#card_WebDriver2Demo').find('input').attr('name')));
+});
+$( "#deletebtn_WebDriver2Demo" ).click(function() {
+	deleteFile(($('#card_WebDriver2Demo').find('input').attr('name')),($('#card_WebDriver2Demo').parent().attr('name')));
+
+});
+$( "#editbtn_WebDriver2Demo" ).click(async function() {
+	 await editProcessCase(($('#card_WebDriver2Demo').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_WebDriver2Demo").click(async function () {
+            await uploadProcessCase(($('#card_WebDriver2Demo').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownWebDriver2Demo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownWebDriver2Demo">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_WebDriver2Demo">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_WebDriver2Demo">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_WebDriver2Demo">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">WebDriver 2</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_WebDriver2Demo">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Demo-control" name="Demo\WebDriver 2.rfrobot" id="id_WebDriver2Demo">
+            <label class="custom-control-label" for="id_WebDriver2Demo">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="WebDriver" id="card_WebDriverDemo">
+    <script>
+	$( "#target_WebDriverDemo" ).click(function() {
+  runProcess(($('#card_WebDriverDemo').find('input').attr('name')));
+});
+$( "#deletebtn_WebDriverDemo" ).click(function() {
+	deleteFile(($('#card_WebDriverDemo').find('input').attr('name')),($('#card_WebDriverDemo').parent().attr('name')));
+
+});
+$( "#editbtn_WebDriverDemo" ).click(async function() {
+	 await editProcessCase(($('#card_WebDriverDemo').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_WebDriverDemo").click(async function () {
+            await uploadProcessCase(($('#card_WebDriverDemo').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownWebDriverDemo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownWebDriverDemo">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_WebDriverDemo">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_WebDriverDemo">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_WebDriverDemo">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">WebDriver</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_WebDriverDemo">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Demo-control" name="Demo\WebDriver.rfrobot" id="id_WebDriverDemo">
+            <label class="custom-control-label" for="id_WebDriverDemo">Toggle selection</label>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</div> <!-- Collapsable Card Example -->
+
+<div class="card shadow mb-4 col-lg-12" style="border: solid 1px #81a2de">
+
+    <!-- Card Header - Accordion -->
+
+    <div class="d-block card-header py-3 collapsed" style="background-color:#ffffff; padding:0">
+
+        <div class="row">
+            <h6 class="m-0 font-weight-bold text-primary col-md-10 pointer" href="#folder_BPO" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="folder_BPO" style="padding:20px">BPO</h6>
+
+            <div class="custom-control custom-switch col-md-1 float-right">
+                <input type="checkbox" class="custom-control-input folder-control" id="BPO-control" onchange="selectAllProcess('BPO-control');">
+                <label class="custom-control-label" for="BPO-control"></label>
+            </div>
+            <div class="col-md-1 float-right">
+                <a href="#" role="button" id="dropdownBPO" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownBPO">
+                    <div class="dropdown-header">Actions:</div>
+                    <a class="dropdown-item" href="#" onclick="createProcesscaseInFolder_window('BPO');">Add new process</a>
+                    <a class="dropdown-item" href="#" onclick="deleteFolder('BPO');">Delete directory</a>
+                    <a class="dropdown-item" href="#" onclick="renameFolder('BPO');">Rename directory</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" onclick="openFolder('BPO');">Go to file explorer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card Content - Collapse -->
+    <div class="collapse" id="folder_BPO">
+        <div class="card-body">
+
+            <div class="row my-2">
+            </div>
+            <div class="row col-lg-12 dropzone myprocess" id="body_BPO" name="BPO" controlfolder="BPO-control" style="min-height:200px;">
+                 <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="backup" id="card_backupBPO">
+    <script>
+	$( "#target_backupBPO" ).click(function() {
+  runProcess(($('#card_backupBPO').find('input').attr('name')));
+});
+$( "#deletebtn_backupBPO" ).click(function() {
+	deleteFile(($('#card_backupBPO').find('input').attr('name')),($('#card_backupBPO').parent().attr('name')));
+
+});
+$( "#editbtn_backupBPO" ).click(async function() {
+	 await editProcessCase(($('#card_backupBPO').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_backupBPO").click(async function () {
+            await uploadProcessCase(($('#card_backupBPO').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownbackupBPO" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownbackupBPO">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_backupBPO">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_backupBPO">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_backupBPO">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">backup</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_backupBPO">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="BPO-control" name="BPO\backup.rfrobot" id="id_backupBPO">
+            <label class="custom-control-label" for="id_backupBPO">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="check 1" id="card_check1BPO">
+    <script>
+	$( "#target_check1BPO" ).click(function() {
+  runProcess(($('#card_check1BPO').find('input').attr('name')));
+});
+$( "#deletebtn_check1BPO" ).click(function() {
+	deleteFile(($('#card_check1BPO').find('input').attr('name')),($('#card_check1BPO').parent().attr('name')));
+
+});
+$( "#editbtn_check1BPO" ).click(async function() {
+	 await editProcessCase(($('#card_check1BPO').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_check1BPO").click(async function () {
+            await uploadProcessCase(($('#card_check1BPO').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdowncheck1BPO" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdowncheck1BPO">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_check1BPO">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_check1BPO">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_check1BPO">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">check 1</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_check1BPO">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="BPO-control" name="BPO\check 1.rfrobot" id="id_check1BPO">
+            <label class="custom-control-label" for="id_check1BPO">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="check 2" id="card_check2BPO">
+    <script>
+	$( "#target_check2BPO" ).click(function() {
+  runProcess(($('#card_check2BPO').find('input').attr('name')));
+});
+$( "#deletebtn_check2BPO" ).click(function() {
+	deleteFile(($('#card_check2BPO').find('input').attr('name')),($('#card_check2BPO').parent().attr('name')));
+
+});
+$( "#editbtn_check2BPO" ).click(async function() {
+	 await editProcessCase(($('#card_check2BPO').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_check2BPO").click(async function () {
+            await uploadProcessCase(($('#card_check2BPO').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdowncheck2BPO" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdowncheck2BPO">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_check2BPO">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_check2BPO">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_check2BPO">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">check 2</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_check2BPO">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="BPO-control" name="BPO\check 2.rfrobot" id="id_check2BPO">
+            <label class="custom-control-label" for="id_check2BPO">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="check 3" id="card_check3BPO">
+    <script>
+	$( "#target_check3BPO" ).click(function() {
+  runProcess(($('#card_check3BPO').find('input').attr('name')));
+});
+$( "#deletebtn_check3BPO" ).click(function() {
+	deleteFile(($('#card_check3BPO').find('input').attr('name')),($('#card_check3BPO').parent().attr('name')));
+
+});
+$( "#editbtn_check3BPO" ).click(async function() {
+	 await editProcessCase(($('#card_check3BPO').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_check3BPO").click(async function () {
+            await uploadProcessCase(($('#card_check3BPO').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdowncheck3BPO" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdowncheck3BPO">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_check3BPO">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_check3BPO">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_check3BPO">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">check 3</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_check3BPO">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="BPO-control" name="BPO\check 3.rfrobot" id="id_check3BPO">
+            <label class="custom-control-label" for="id_check3BPO">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="migracja umowy" id="card_migracjaumowyBPO">
+    <script>
+	$( "#target_migracjaumowyBPO" ).click(function() {
+  runProcess(($('#card_migracjaumowyBPO').find('input').attr('name')));
+});
+$( "#deletebtn_migracjaumowyBPO" ).click(function() {
+	deleteFile(($('#card_migracjaumowyBPO').find('input').attr('name')),($('#card_migracjaumowyBPO').parent().attr('name')));
+
+});
+$( "#editbtn_migracjaumowyBPO" ).click(async function() {
+	 await editProcessCase(($('#card_migracjaumowyBPO').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_migracjaumowyBPO").click(async function () {
+            await uploadProcessCase(($('#card_migracjaumowyBPO').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownmigracjaumowyBPO" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownmigracjaumowyBPO">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_migracjaumowyBPO">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_migracjaumowyBPO">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_migracjaumowyBPO">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">migracja umowy</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_migracjaumowyBPO">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="BPO-control" name="BPO\migracja umowy.rfrobot" id="id_migracjaumowyBPO">
+            <label class="custom-control-label" for="id_migracjaumowyBPO">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="migracja — kopia" id="card_migracja—kopiaBPO">
+    <script>
+	$( "#target_migracja—kopiaBPO" ).click(function() {
+  runProcess(($('#card_migracja—kopiaBPO').find('input').attr('name')));
+});
+$( "#deletebtn_migracja—kopiaBPO" ).click(function() {
+	deleteFile(($('#card_migracja—kopiaBPO').find('input').attr('name')),($('#card_migracja—kopiaBPO').parent().attr('name')));
+
+});
+$( "#editbtn_migracja—kopiaBPO" ).click(async function() {
+	 await editProcessCase(($('#card_migracja—kopiaBPO').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_migracja—kopiaBPO").click(async function () {
+            await uploadProcessCase(($('#card_migracja—kopiaBPO').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownmigracja—kopiaBPO" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownmigracja—kopiaBPO">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_migracja—kopiaBPO">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_migracja—kopiaBPO">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_migracja—kopiaBPO">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">migracja — kopia</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_migracja—kopiaBPO">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="BPO-control" name="BPO\migracja — kopia.rfrobot" id="id_migracja—kopiaBPO">
+            <label class="custom-control-label" for="id_migracja—kopiaBPO">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="migracjav22" id="card_migracjav22BPO">
+    <script>
+	$( "#target_migracjav22BPO" ).click(function() {
+  runProcess(($('#card_migracjav22BPO').find('input').attr('name')));
+});
+$( "#deletebtn_migracjav22BPO" ).click(function() {
+	deleteFile(($('#card_migracjav22BPO').find('input').attr('name')),($('#card_migracjav22BPO').parent().attr('name')));
+
+});
+$( "#editbtn_migracjav22BPO" ).click(async function() {
+	 await editProcessCase(($('#card_migracjav22BPO').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_migracjav22BPO").click(async function () {
+            await uploadProcessCase(($('#card_migracjav22BPO').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownmigracjav22BPO" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownmigracjav22BPO">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_migracjav22BPO">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_migracjav22BPO">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_migracjav22BPO">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">migracjav22</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_migracjav22BPO">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="BPO-control" name="BPO\migracjav22.rfrobot" id="id_migracjav22BPO">
+            <label class="custom-control-label" for="id_migracjav22BPO">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="template" id="card_templateBPO">
+    <script>
+	$( "#target_templateBPO" ).click(function() {
+  runProcess(($('#card_templateBPO').find('input').attr('name')));
+});
+$( "#deletebtn_templateBPO" ).click(function() {
+	deleteFile(($('#card_templateBPO').find('input').attr('name')),($('#card_templateBPO').parent().attr('name')));
+
+});
+$( "#editbtn_templateBPO" ).click(async function() {
+	 await editProcessCase(($('#card_templateBPO').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_templateBPO").click(async function () {
+            await uploadProcessCase(($('#card_templateBPO').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdowntemplateBPO" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdowntemplateBPO">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_templateBPO">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_templateBPO">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_templateBPO">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">template</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_templateBPO">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="BPO-control" name="BPO\template.rfrobot" id="id_templateBPO">
+            <label class="custom-control-label" for="id_templateBPO">Toggle selection</label>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</div> <!-- Collapsable Card Example -->
+
+<div class="card shadow mb-4 col-lg-12" style="border: solid 1px #81a2de">
+
+    <!-- Card Header - Accordion -->
+
+    <div class="d-block card-header py-3 collapsed" style="background-color:#ffffff; padding:0">
+
+        <div class="row">
+            <h6 class="m-0 font-weight-bold text-primary col-md-10 pointer" href="#folder_Cloobees" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="folder_Cloobees" style="padding:20px">Cloobees</h6>
+
+            <div class="custom-control custom-switch col-md-1 float-right">
+                <input type="checkbox" class="custom-control-input folder-control" id="Cloobees-control" onchange="selectAllProcess('Cloobees-control');">
+                <label class="custom-control-label" for="Cloobees-control"></label>
+            </div>
+            <div class="col-md-1 float-right">
+                <a href="#" role="button" id="dropdownCloobees" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownCloobees">
+                    <div class="dropdown-header">Actions:</div>
+                    <a class="dropdown-item" href="#" onclick="createProcesscaseInFolder_window('Cloobees');">Add new process</a>
+                    <a class="dropdown-item" href="#" onclick="deleteFolder('Cloobees');">Delete directory</a>
+                    <a class="dropdown-item" href="#" onclick="renameFolder('Cloobees');">Rename directory</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" onclick="openFolder('Cloobees');">Go to file explorer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card Content - Collapse -->
+    <div class="collapse" id="folder_Cloobees">
+        <div class="card-body">
+
+            <div class="row my-2">
+            </div>
+            <div class="row col-lg-12 dropzone myprocess" id="body_Cloobees" name="Cloobees" controlfolder="Cloobees-control" style="min-height:200px;">
+                 <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="Salesforce Custom Code Report — kopia (2)" id="card_SalesforceCustomCodeReport—kopia2Cloobees">
+    <script>
+	$( "#target_SalesforceCustomCodeReport—kopia2Cloobees" ).click(function() {
+  runProcess(($('#card_SalesforceCustomCodeReport—kopia2Cloobees').find('input').attr('name')));
+});
+$( "#deletebtn_SalesforceCustomCodeReport—kopia2Cloobees" ).click(function() {
+	deleteFile(($('#card_SalesforceCustomCodeReport—kopia2Cloobees').find('input').attr('name')),($('#card_SalesforceCustomCodeReport—kopia2Cloobees').parent().attr('name')));
+
+});
+$( "#editbtn_SalesforceCustomCodeReport—kopia2Cloobees" ).click(async function() {
+	 await editProcessCase(($('#card_SalesforceCustomCodeReport—kopia2Cloobees').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_SalesforceCustomCodeReport—kopia2Cloobees").click(async function () {
+            await uploadProcessCase(($('#card_SalesforceCustomCodeReport—kopia2Cloobees').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownSalesforceCustomCodeReport—kopia2Cloobees" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownSalesforceCustomCodeReport—kopia2Cloobees">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_SalesforceCustomCodeReport—kopia2Cloobees">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_SalesforceCustomCodeReport—kopia2Cloobees">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_SalesforceCustomCodeReport—kopia2Cloobees">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Salesforce Custom Code Report — kopia (2)</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_SalesforceCustomCodeReport—kopia2Cloobees">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Cloobees-control" name="Cloobees\Salesforce Custom Code Report — kopia (2).rfrobot" id="id_SalesforceCustomCodeReport—kopia2Cloobees">
+            <label class="custom-control-label" for="id_SalesforceCustomCodeReport—kopia2Cloobees">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="Salesforce Custom Code Report — kopia (3)" id="card_SalesforceCustomCodeReport—kopia3Cloobees">
+    <script>
+	$( "#target_SalesforceCustomCodeReport—kopia3Cloobees" ).click(function() {
+  runProcess(($('#card_SalesforceCustomCodeReport—kopia3Cloobees').find('input').attr('name')));
+});
+$( "#deletebtn_SalesforceCustomCodeReport—kopia3Cloobees" ).click(function() {
+	deleteFile(($('#card_SalesforceCustomCodeReport—kopia3Cloobees').find('input').attr('name')),($('#card_SalesforceCustomCodeReport—kopia3Cloobees').parent().attr('name')));
+
+});
+$( "#editbtn_SalesforceCustomCodeReport—kopia3Cloobees" ).click(async function() {
+	 await editProcessCase(($('#card_SalesforceCustomCodeReport—kopia3Cloobees').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_SalesforceCustomCodeReport—kopia3Cloobees").click(async function () {
+            await uploadProcessCase(($('#card_SalesforceCustomCodeReport—kopia3Cloobees').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownSalesforceCustomCodeReport—kopia3Cloobees" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownSalesforceCustomCodeReport—kopia3Cloobees">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_SalesforceCustomCodeReport—kopia3Cloobees">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_SalesforceCustomCodeReport—kopia3Cloobees">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_SalesforceCustomCodeReport—kopia3Cloobees">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Salesforce Custom Code Report — kopia (3)</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_SalesforceCustomCodeReport—kopia3Cloobees">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Cloobees-control" name="Cloobees\Salesforce Custom Code Report — kopia (3).rfrobot" id="id_SalesforceCustomCodeReport—kopia3Cloobees">
+            <label class="custom-control-label" for="id_SalesforceCustomCodeReport—kopia3Cloobees">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="Salesforce Custom Code Report — kopia" id="card_SalesforceCustomCodeReport—kopiaCloobees">
+    <script>
+	$( "#target_SalesforceCustomCodeReport—kopiaCloobees" ).click(function() {
+  runProcess(($('#card_SalesforceCustomCodeReport—kopiaCloobees').find('input').attr('name')));
+});
+$( "#deletebtn_SalesforceCustomCodeReport—kopiaCloobees" ).click(function() {
+	deleteFile(($('#card_SalesforceCustomCodeReport—kopiaCloobees').find('input').attr('name')),($('#card_SalesforceCustomCodeReport—kopiaCloobees').parent().attr('name')));
+
+});
+$( "#editbtn_SalesforceCustomCodeReport—kopiaCloobees" ).click(async function() {
+	 await editProcessCase(($('#card_SalesforceCustomCodeReport—kopiaCloobees').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_SalesforceCustomCodeReport—kopiaCloobees").click(async function () {
+            await uploadProcessCase(($('#card_SalesforceCustomCodeReport—kopiaCloobees').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownSalesforceCustomCodeReport—kopiaCloobees" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownSalesforceCustomCodeReport—kopiaCloobees">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_SalesforceCustomCodeReport—kopiaCloobees">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_SalesforceCustomCodeReport—kopiaCloobees">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_SalesforceCustomCodeReport—kopiaCloobees">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Salesforce Custom Code Report — kopia</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_SalesforceCustomCodeReport—kopiaCloobees">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Cloobees-control" name="Cloobees\Salesforce Custom Code Report — kopia.rfrobot" id="id_SalesforceCustomCodeReport—kopiaCloobees">
+            <label class="custom-control-label" for="id_SalesforceCustomCodeReport—kopiaCloobees">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="Salesforce Custom Code Report" id="card_SalesforceCustomCodeReportCloobees">
+    <script>
+	$( "#target_SalesforceCustomCodeReportCloobees" ).click(function() {
+  runProcess(($('#card_SalesforceCustomCodeReportCloobees').find('input').attr('name')));
+});
+$( "#deletebtn_SalesforceCustomCodeReportCloobees" ).click(function() {
+	deleteFile(($('#card_SalesforceCustomCodeReportCloobees').find('input').attr('name')),($('#card_SalesforceCustomCodeReportCloobees').parent().attr('name')));
+
+});
+$( "#editbtn_SalesforceCustomCodeReportCloobees" ).click(async function() {
+	 await editProcessCase(($('#card_SalesforceCustomCodeReportCloobees').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_SalesforceCustomCodeReportCloobees").click(async function () {
+            await uploadProcessCase(($('#card_SalesforceCustomCodeReportCloobees').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownSalesforceCustomCodeReportCloobees" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownSalesforceCustomCodeReportCloobees">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_SalesforceCustomCodeReportCloobees">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_SalesforceCustomCodeReportCloobees">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_SalesforceCustomCodeReportCloobees">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Salesforce Custom Code Report</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_SalesforceCustomCodeReportCloobees">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Cloobees-control" name="Cloobees\Salesforce Custom Code Report.rfrobot" id="id_SalesforceCustomCodeReportCloobees">
+            <label class="custom-control-label" for="id_SalesforceCustomCodeReportCloobees">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="Salesforce Custom Code Report_linux" id="card_SalesforceCustomCodeReport_linuxCloobees">
+    <script>
+	$( "#target_SalesforceCustomCodeReport_linuxCloobees" ).click(function() {
+  runProcess(($('#card_SalesforceCustomCodeReport_linuxCloobees').find('input').attr('name')));
+});
+$( "#deletebtn_SalesforceCustomCodeReport_linuxCloobees" ).click(function() {
+	deleteFile(($('#card_SalesforceCustomCodeReport_linuxCloobees').find('input').attr('name')),($('#card_SalesforceCustomCodeReport_linuxCloobees').parent().attr('name')));
+
+});
+$( "#editbtn_SalesforceCustomCodeReport_linuxCloobees" ).click(async function() {
+	 await editProcessCase(($('#card_SalesforceCustomCodeReport_linuxCloobees').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_SalesforceCustomCodeReport_linuxCloobees").click(async function () {
+            await uploadProcessCase(($('#card_SalesforceCustomCodeReport_linuxCloobees').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdownSalesforceCustomCodeReport_linuxCloobees" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdownSalesforceCustomCodeReport_linuxCloobees">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_SalesforceCustomCodeReport_linuxCloobees">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_SalesforceCustomCodeReport_linuxCloobees">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_SalesforceCustomCodeReport_linuxCloobees">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Salesforce Custom Code Report_linux</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_SalesforceCustomCodeReport_linuxCloobees">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Cloobees-control" name="Cloobees\Salesforce Custom Code Report_linux.rfrobot" id="id_SalesforceCustomCodeReport_linuxCloobees">
+            <label class="custom-control-label" for="id_SalesforceCustomCodeReport_linuxCloobees">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="test" id="card_testCloobees">
+    <script>
+	$( "#target_testCloobees" ).click(function() {
+  runProcess(($('#card_testCloobees').find('input').attr('name')));
+});
+$( "#deletebtn_testCloobees" ).click(function() {
+	deleteFile(($('#card_testCloobees').find('input').attr('name')),($('#card_testCloobees').parent().attr('name')));
+
+});
+$( "#editbtn_testCloobees" ).click(async function() {
+	 await editProcessCase(($('#card_testCloobees').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_testCloobees").click(async function () {
+            await uploadProcessCase(($('#card_testCloobees').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdowntestCloobees" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdowntestCloobees">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_testCloobees">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_testCloobees">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_testCloobees">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">test</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_testCloobees">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Cloobees-control" name="Cloobees\test.rfrobot" id="id_testCloobees">
+            <label class="custom-control-label" for="id_testCloobees">Toggle selection</label>
+        </div>
+    </div>
+</div> <!-- Basic Card Example -->
+
+<div class="drag-drop-process-tile card col-lg-2 drag-drop sticky yes-drop" style="width: 8rem; margin:1rem" name="test2" id="card_test2Cloobees">
+    <script>
+	$( "#target_test2Cloobees" ).click(function() {
+  runProcess(($('#card_test2Cloobees').find('input').attr('name')));
+});
+$( "#deletebtn_test2Cloobees" ).click(function() {
+	deleteFile(($('#card_test2Cloobees').find('input').attr('name')),($('#card_test2Cloobees').parent().attr('name')));
+
+});
+$( "#editbtn_test2Cloobees" ).click(async function() {
+	 await editProcessCase(($('#card_test2Cloobees').find('input').attr('name')));
+
+});
+
+        $("#uploadbtn_test2Cloobees").click(async function () {
+            await uploadProcessCase(($('#card_test2Cloobees').find('input').attr('name')));
+
+        });
+
+    </script>
+    <div class="col-md-1 float-right">
+        <a href="#" role="button" id="dropdowntest2Cloobees" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" style="position:relative" aria-labelledby="dropdowntest2Cloobees">
+            <div class="dropdown-header">Actions:</div>
+            <a class="dropdown-item" href="#" onclick="">Copy Process (or hold CTRL and move)</a>
+            <a class="dropdown-item" href="#" id="editbtn_test2Cloobees">Edit process</a>
+            <a class="dropdown-item" href="#" id="uploadbtn_test2Cloobees">Upload to Command Center</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="deletebtn_test2Cloobees">Delete process</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">test2</h5>
+
+        <p class="card-text">Description of Process</p>
+
+        <button class="btn btn-primary" id="target_test2Cloobees">Run</button>
+        <div class="row my-2">
+        </div>
+        <!-- Default switch -->
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input Process-control " controlid="Cloobees-control" name="Cloobees\test2.rfrobot" id="id_test2Cloobees">
+            <label class="custom-control-label" for="id_test2Cloobees">Toggle selection</label>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>", source: file:///C:/Robot-ForceNET6v2/CefForm/bin/Release/netcoreapp3.1/publish/universal/Frontend/js/robot-main.js (530)

@@ -1,0 +1,418 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--deep-dark: rgb(26, 26, 26);
+	--light-dark: rgb(79, 82, 92);
+	--light-blue: #3c93e6;
+	--dark-blue: rgb(2, 84, 161);
+	--light: #f7faff;
+	--white: #ffffff;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+#loader {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	z-index: 600;
+	width: 450px;
+	height: 450px;
+	margin: -75px 0 0 -75px;
+	border: 16px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 16px solid #3498db;
+	width: 120px;
+	height: 120px;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+}
+@-webkit-keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+
+body {
+	font-family: 'Segoe UI', Arial, sans-serif;
+	font-size: 1.6rem;
+	background-color: var(--light);
+	overflow:hidden;
+
+}
+
+.loadingBlur {
+	filter: blur(5px);
+	-webkit-filter: blur(5px);
+}
+
+.wrapper {
+	padding: 0 5%;
+}
+
+#elementProperties {
+	min-height: 30vh;
+	max-height: 30vh;
+	display:block;
+	overflow:auto;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	width: 100%;
+	height: 55px;
+	background-color: var(--light-blue);
+}
+
+.logo {
+	height: 26px;
+	cursor: pointer;
+}
+
+.name {
+	position: absolute;
+	left: 20%;
+	color: var(--white);
+	letter-spacing: 1.2px;
+}
+
+.nav-buttons button {
+	padding-left: 15px;
+	border: none;
+	color: var(--white);
+	background-color: transparent;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.options {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	position: absolute;
+	top: 55px;
+	width: 100%;
+	height: 55px;
+	background-color: var(--white);
+	box-shadow: 4px 0px 8px rgba(141, 141, 141, 0.4);
+	z-index: -1;
+}
+
+.option-btns {
+	position: absolute;
+	right: 12%;
+}
+
+.option-btns button {
+	padding-left: 20px;
+	border: none;
+	color: var(--deep-dark);
+	background-color: transparent;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.element-container {
+	position: absolute;
+	top: 10vh;
+	width: 25%;
+	height: 90vh;
+	background-color: var(--white);
+	box-shadow: 0px 4px 8px rgba(141, 141, 141, 0.4);
+	z-index: -2;
+	overflow: auto;
+}
+
+.elements {
+	margin-top: 5vh;
+	max-height: 100vh;
+}
+
+
+.element-tree-header {
+	height: 50px;
+	border-bottom: 1px solid rgba(179, 179, 179, 0.281);
+}
+
+.elements-list {
+	margin-top: 40px;
+	padding-bottom: 40px;
+}
+
+.element-btn{
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.main-element{
+	padding-left: 15px;
+	transform: translateY(-10%);
+}
+
+.more-options{
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.fa-ellipsis-h{
+	font-size: 14px;
+}
+
+
+.under-element-box {
+	margin-top: 30px;
+	padding-left: 30px;
+}
+
+.under-element-box p{
+	padding-left: 3px;
+	transform: translateY(-20%);
+}
+
+	.under-element-box a {
+		cursor:pointer;
+	}
+
+.plus{
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.fa-plus {
+	font-size: 14px !important;
+	margin-left: 5px;
+	color: cornflowerblue;
+}
+.fa-minus {
+	font-size: 14px !important;
+	margin-left: 5px;
+	color: cornflowerblue;
+}
+
+.isDisplayingProperties {
+	border: solid;
+	border-color: cornflowerblue;
+	border-radius: 5px;
+}
+.checkbox-left-list {
+	margin-right: 5px;
+	
+}
+
+.main-area{
+	width: 75%;
+}
+
+.properties {
+	position: absolute;
+	top: 180px;
+	left: 30%;
+	z-index: -3;
+	width: 70vw;
+}
+
+.properties h1 {
+	padding-bottom: 20px;
+}
+
+.far,
+.fas,
+.fal {
+	font-size: 18px;
+}
+
+.item {
+	position: relative;
+	display: inline-block;
+	padding: 10px;
+	margin-bottom: 10px;
+	width: 90%;
+	background-color: var(--white);
+	border-radius: 16px;
+	border: 1px solid #dadce6;
+}
+
+.item-body{
+	padding-left: 10px;
+}
+
+.content {
+	padding-left: 18px;
+}
+
+.content span {
+	font-weight: bold;
+	padding-right: 8px;
+}
+
+.edit {
+	position: absolute;
+	right: 50px;
+	border: none;
+	font-size: 1.4rem;
+	font-weight: bold;
+	color: var(--light-blue);
+	background-color: transparent;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.path {
+	position: relative;
+	margin-top: 40px;
+	margin-bottom: 10px;
+}
+
+.path textarea {
+	max-width: 90%;
+	min-width: 90%;
+	max-height: 500px;
+	min-height: 70px;
+	padding-top: 20px;
+	font-size: 1.4rem;
+	font-family: 'Segoe UI', sans-serif;
+	font-weight: 400;
+	background-color: var(--white);
+	border-radius: 16px;
+	border: 1px solid #dadce6;
+}
+
+.buttons {
+	position: relative;
+	left: 80%;
+	transform: translate(-50%);
+	margin-top: 20px;
+}
+
+.buttons-validate {
+	position: relative;
+	left: 80%;
+	transform: translate(-50%);
+	padding-bottom: 20px;
+}
+
+.buttons button {
+	padding: 15px 45px;
+	margin-right: 20px;
+	font-size: 1.4rem;
+	font-weight: bold;
+	letter-spacing: 0.6px;
+	color: var(--white);
+	background-color: var(--light-blue);
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.buttons-validate button {
+	padding: 15px 45px;
+	margin-right: 20px;
+	font-size: 1.4rem;
+	font-weight: bold;
+	letter-spacing: 0.6px;
+	color: var(--white);
+	border: none;
+	border-radius: 10px;
+	cursor:pointer;
+}
+.toggle-on {
+	background-color:darkorange;
+}
+
+
+.toggle-off {
+	background-color: dimgrey;
+}
+.toggle-valid {
+	background-color: #09c768;
+}
+
+.toggle-invalid {
+	background-color: red;
+}
+
+.element-tree-header {
+	height: 50px;
+	border-bottom: 1px solid rgba(179, 179, 179, 0.281);
+}
+
+.elements-list {
+	margin-top: 40px;
+}
+
+.element-btn{
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+.top-element-box h5 {
+	position: absolute;
+	left: 10%;
+	transform: translateY(-10%);
+	font-size: 1.5rem;
+}
+
+.more-options{
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.fa-ellipsis-h{
+	font-size: 14px;
+}
+
+
+
+
+.under-element-box p{
+	position: absolute;
+	left: 20%;
+	transform: translateY(-20%);
+}
+
+.plus{
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.fa-plus{
+	font-size: 14px;
+}
+
+
+.hidden{
+	display:none;
+}
+
+#topBarMargin{
+	height: 1vh;
+}
